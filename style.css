@@ -156,9 +156,9 @@ header {
   font-size: 1.8rem;
   font-style: italic;
   border: none;
-  padding: .9rem 4.5rem;
-  border-radius: 10px;
-  margin: 3.5rem 0;
+  padding: 1.3rem 4.5rem;
+  border-radius: 5px;
+  margin: 3.5rem ;
   background-color: rgb(59, 108, 214);
   color: #fff;
 
@@ -167,6 +167,7 @@ header {
 .profile__cta:hover {
   background-color: #007bb5;
   transform: scale(1.1);
+  box-shadow: #89c9e7 blur;
 }
 
 .profile__image {
@@ -175,6 +176,12 @@ header {
   /* flex-basis: 2; */
 }
 
+.profile__image{
+  animation: slideInFromTop 1s ease-in;
+}
+.profile__info{
+  animation: slideInFromBottom 1s ease-in
+}
 /* Apply the css to the div of the image and use % instead of px */
 .profile-pix {
   width: 100%;
@@ -368,7 +375,7 @@ footer {
   margin-top: 6rem;
 }
 
-.contacts {
+.contacts{
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -386,6 +393,7 @@ footer {
   text-shadow: 1px 1px 1px black;
   font-weight: bold;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .socials-icons {
@@ -427,8 +435,6 @@ input, textarea:hover{
   border-radius: 5px;
   border-color: grey;
 }
-
-
 
 .contact__form__btn {
   cursor: pointer;
@@ -503,6 +509,23 @@ input, textarea:hover{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 }
+/*Mobile Animation*/
+@keyframes slideInFromTop{
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromBottom{
+  0%{
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
 
 @media only screen and (min-width: 768px) {
 
@@ -544,7 +567,10 @@ input, textarea:hover{
     /* flex-wrap: wrap-reverse; */
 
   }
-
+  .profile__info{
+    animation: slideInFromLeft 1s ease;
+  }
+ 
   .profile__info {
     max-width: 55%;
     text-align: left;
@@ -571,12 +597,16 @@ input, textarea:hover{
     line-height: 2.2rem;
 
   }
-
+ 
+  .profile__image{
+    animation: slideInFromRight 1s ease-in;
+  }
   .profile__image {
     max-width: 35%;
 
 
   }
+
 
   .profile-pix {
     width: 300px;
@@ -615,4 +645,22 @@ input, textarea:hover{
     width: 55%;
   }
 
+}
+/*Animations*/
+@keyframes slideInFromLeft{
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight{
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
 }
